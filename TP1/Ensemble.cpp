@@ -12,6 +12,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
