@@ -27,28 +27,39 @@ char *getString () {
 }
 
 int main(){
-	// const TrajetSimple *ts1 = new TrajetSimple("Lyon", "Hanoi", "bateau");
+	// const TrajetSimple *ts1 = new TrajetSimple("A", "B", "1");
 
-	// const TrajetSimple *ts2 = new TrajetSimple("Hanoi", "Paris", "avion");
+	// const TrajetSimple *ts2 = new TrajetSimple("B", "C", "1");
 
-	// const TrajetSimple *ts3 = new TrajetSimple("Bangkok", "Danang", "train");
+	// const TrajetSimple *ts3 = new TrajetSimple("B", "Y", "3");
+	// const TrajetSimple *ts4 = new TrajetSimple("Y", "C", "2");
+	// Liste *L1 = new Liste;
+	// L1->AjouterTrajet(ts3);
+	// L1->AjouterTrajet(ts4);
+	// const TrajetCompose *tc1 = new TrajetCompose(L1->getPremiereEtape()->getTrajet()->getDepart(), 
+	// 											 L1->getDerniereEtape()->getTrajet()->getArrivee(), 
+	// 											 L1);
 
-	// Liste *L = new Liste;
+	// const TrajetSimple *ts5 = new TrajetSimple("A", "Z", "2");
+	// const TrajetSimple *ts6 = new TrajetSimple("Z", "C", "1");
+	// Liste *L2 = new Liste;
+	// L2->AjouterTrajet(ts5);
+	// L2->AjouterTrajet(ts6);
+	// const TrajetCompose *tc2 = new TrajetCompose(L2->getPremiereEtape()->getTrajet()->getDepart(), 
+	// 											 L2->getDerniereEtape()->getTrajet()->getArrivee(), 
+	// 											 L2);
 
-	// L->AjouterTrajet(ts1);
-	// L->AjouterTrajet(ts2);
-	// L->AjouterTrajet(ts3);
-	// L->Afficher();
 
-	// const TrajetCompose *tc1 = new TrajetCompose(L->getPremiereEtape()->getTrajet()->getDepart(), 
-	// 											 L->getDerniereEtape()->getTrajet()->getArrivee(), 
-	// 											 L);
-	// tc1->Afficher();
-	// cout << tc1->getDepart() << " " << tc1->getArrivee() << endl;
+	// Catalogue *C = new Catalogue;
+	// C->AjouterTrajetSimple(ts1);
+	// C->AjouterTrajetSimple(ts2);
+	// C->AjouterTrajetCompose(tc1);
+	// C->AjouterTrajetCompose(tc2);
 
-	//Catalogue *C = new Catalogue;
-	//C->AjouterTrajetSimple(ts1);
-	//C->Afficher();
+	// C->Afficher();
+
+	// C->RechercheAvancee("A", "C");
+
 
 	Catalogue *C = new Catalogue;
 
@@ -82,7 +93,7 @@ int main(){
 			C->AjouterTrajetSimple(trajet_simple);
 
 			trajet_simple->Afficher(); 
-			cout << "a ete ajoute au catalogue.\n";
+			cout << "a ete ajoute au catalogue.";
 		} 
 		else if (option == '2') {
 			cout << "Entrez le nombre d'etapes que vous souhaitez deplacer (N > 1). N = ";
@@ -122,16 +133,32 @@ int main(){
 			C->AjouterTrajetCompose(trajet_compose);
 
 			trajet_compose->Afficher(); 
-			cout << "a ete ajoute au catalogue.\n";
+			cout << "a ete ajoute au catalogue.";
 		}
 		else if (option == '3') {
 			C->Afficher();
 		}
 		else if (option == '4') {
-			
+			char *villeDepart;
+			char *villeArrivee;
+
+			cout << "Ville de depart : ";
+			villeDepart = getString();
+			cout << "Ville d'arrivee : ";
+			villeArrivee = getString();
+
+			C->RechercheSimple(villeDepart, villeArrivee);
 		}
 		else if (option == '5') {
-			
+			char *villeDepart;
+			char *villeArrivee;
+
+			cout << "Ville de depart : ";
+			villeDepart = getString();
+			cout << "Ville d'arrivee : ";
+			villeArrivee = getString();
+
+			C->RechercheAvancee(villeDepart, villeArrivee);
 		}
 		else if (option == '6') {
 			cout << "Toutes les donnees seront perdues. Avez-vous encore besoin de quitter ce programme? (Y/N) ";
@@ -142,14 +169,10 @@ int main(){
 				break;
 			}
 		} else {
-			cout << "Choix invalide. Entre 1 et 6, svp...\n";
+			cout << "Choix invalide. Entre 1 et 6, svp...";
 		}
 	}
-
-
-
-	
-
+	cout << "\n";
 
 	return 0;
 }

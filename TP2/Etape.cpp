@@ -12,6 +12,7 @@ using namespace std;
 
 #include "Trajet.h"
 #include "Etape.h"
+#include "TrajetCompose.h"
 
 Etape::Etape (const Trajet *UnTrajet) 
 {
@@ -20,15 +21,26 @@ Etape::Etape (const Trajet *UnTrajet)
     EtapeSuivant = NULL;
 }
 
+Etape::Etape (const Etape *UneEtape) 
+{
+	TrajetActuel = UneEtape->getTrajet();
+    EtapePrecedent = UneEtape->getEtapePrecedent();
+    EtapeSuivant = UneEtape->getEtapeSuivante();
+}
+
 Etape::~Etape ( )
 {
-    
+    delete EtapePrecedent;
+    delete EtapeSuivant;
 } 
 
 void Etape::Afficher () const
 {
+    // const TrajetCompose* t = static_cast<TrajetCompose*>(TrajetActuel); 
+    // if (t) {
+    //     cout << "    ";
+    // } 
 	TrajetActuel->Afficher();
-    
 }
 
 const Trajet *Etape::getTrajet() const 
@@ -36,22 +48,22 @@ const Trajet *Etape::getTrajet() const
     return TrajetActuel;
 }
 
-const Etape *Etape::getEtapePrecedent() const
+Etape *Etape::getEtapePrecedent() const
 {
     return EtapePrecedent;
 }
 
-const Etape *Etape::getEtapeSuivante() const
+Etape *Etape::getEtapeSuivante() const
 {
     return EtapeSuivant;
 }
 
-void Etape::setEtapeSuivant(const Etape *UneEtape) 
+void Etape::setEtapeSuivant( Etape *UneEtape) 
 {
     EtapeSuivant = UneEtape;
 }
 
-void Etape::setEtapePrecedent(const Etape *UneEtape) 
+void Etape::setEtapePrecedent( Etape *UneEtape) 
 {
     EtapePrecedent = UneEtape;
 }

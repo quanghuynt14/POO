@@ -19,6 +19,7 @@ class Liste
 private:
     Etape *premiereEtape; 
     Etape *derniereEtape;
+    int size;
 
 public:
 
@@ -30,6 +31,9 @@ public:
     Etape *getPremiereEtape() const;
     Etape *getDerniereEtape() const;
     void AjouterTrajet(const Trajet *UnTrajet);
+    int getSize() const;
+    int getPosition(const Etape *UnEtape) const;
+    void RetirerEtape(const Etape *UneEtape);
 
 };
 

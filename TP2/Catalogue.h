@@ -31,7 +31,11 @@ public:
 
     void AjouterTrajetCompose(const TrajetCompose *UnTrajetCompose);
 
-    void Rechercher(const char *Start, const char *Goal) const;
+    void RechercheSimple(const char *Start, const char *Goal) const;
+
+    void RechercheAvancee(const char *Start, const char *Goal) const;
+
+    void BFS(const Trajet *x, bool *v, const char *Goal, Liste *Chemin, int &nbParcours) const;
 
 
 

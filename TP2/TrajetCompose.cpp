@@ -19,25 +19,23 @@ TrajetCompose::TrajetCompose(const char *Start, const char *Goal, const Liste *U
 {
 	Etapes = new Liste;
     const Etape *x = UneListe->getPremiereEtape();
-    while (x->getEtapeSuivante() != NULL) {
+    while (x != NULL) {
         Etapes->AjouterTrajet(x->getTrajet());
         x = x->getEtapeSuivante();
     }
-    Etapes->AjouterTrajet(x->getTrajet());
 }
 
 TrajetCompose::~TrajetCompose()
 {
-	//delete [] moyen;
-	//cout<<"TrajetS détruit"<<endl;
+	delete Etapes;
 } 
 
 void TrajetCompose::Afficher() const
 {
-    cout << "Trajet compose include les etapes suivantes : \n";
-    cout << "-----------------------------------------------\n";
+    cout << "Trajet compose include les etapes suivantes : ";
+    cout << "\n|^^^^^^^";
 	Etapes->Afficher();
-    cout << "-------------FIN-DE-TRAJET-COMPOSE-------------\n";
+    cout << "\n|_______";
     cout << "\n";
 }
 

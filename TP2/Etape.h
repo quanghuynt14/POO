@@ -17,21 +17,23 @@ class Etape
 
 private:
     const Trajet *TrajetActuel; 
-    const Etape *EtapePrecedent;
-    const Etape *EtapeSuivant;
+    Etape *EtapePrecedent;
+    Etape *EtapeSuivant;
 
 public:
 
     Etape (const Trajet *UnTrajet = NULL);
 
+    Etape (const Etape *UneEtape);
+
     virtual ~Etape ( );
 
-    void Afficher( ) const;
+    void Afficher() const;
     const Trajet *getTrajet() const;
-    const Etape *getEtapePrecedent() const;
-    const Etape *getEtapeSuivante() const;
-    void setEtapeSuivant(const Etape *UneEtape);
-    void setEtapePrecedent(const Etape *UneEtape);
+    Etape *getEtapePrecedent() const;
+    Etape *getEtapeSuivante() const;
+    void setEtapeSuivant( Etape *UneEtape);
+    void setEtapePrecedent( Etape *UneEtape);
 
 };
 
