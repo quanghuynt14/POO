@@ -10,13 +10,10 @@
 #if ! defined ( TRAJET_SIMPLE_H )
 #define TRAJET_SIMPLE_H
 
-
 class TrajetSimple : public Trajet
 {
-//----------------------------------------------------------------- PUBLIC
 private:
     char *moyen;
-
 
 public:
 
@@ -29,5 +26,5 @@ public:
 };
 
 
-#endif // TRAJETSIMPLE_H
+#endif // TRAJET_SIMPLE_H
 

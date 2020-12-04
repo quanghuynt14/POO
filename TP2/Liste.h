@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Liste  -  description
+                           Liste  -  description (Unsorted and Doubly Linked List)
                              -------------------
     début                : 20/11/2020
     copyright            : (C) 2020 par Francine Jin et Tran Quang Huy
@@ -18,19 +18,21 @@ class Liste
 
 private:
     Etape *premiereEtape; 
+    Etape *derniereEtape;
 
 public:
 
-    Liste (Etape *UnePremiereEtape = nullptr);
+    Liste ();
 
     virtual ~Liste ( );
 
     void Afficher( ) const;
-    const Trajet *getPremierTrajet() const;
-    void AjouterEtape(const Trajet *UnTrajet);
+    Etape *getPremiereEtape() const;
+    Etape *getDerniereEtape() const;
+    void AjouterTrajet(const Trajet *UnTrajet);
 
 };
 
 
-#endif // ETAPE_H
+#endif // LISTE_H
 

@@ -13,9 +13,10 @@ using namespace std;
 #include "Liste.h"
 #include "Etape.h"
 
-Liste::Liste(Etape *UnePremiereEtape) 
+Liste::Liste() 
 {
-	premiereEtape = UnePremiereEtape;
+	premiereEtape = NULL;
+    derniereEtape = premiereEtape;
 }
 
 Liste::~Liste()
@@ -26,20 +27,45 @@ Liste::~Liste()
 
 void Liste::Afficher() const
 {
-	//cout << "Trajet de " << getDepart() << " à " << getArrivee() << " en " << moyen << endl;
+	const Etape *x = premiereEtape;
+    if (x == NULL) {
+        cout << "Desole. Il y a rien pour afficher.\n";
+    } else {
+        int i = 1;
+        while (x->getEtapeSuivante() != NULL) {
+            cout << i << " : ";
+            x->Afficher();
+            x = x->getEtapeSuivante();
+            i++;
+        }
+        cout << i << " : ";
+        x->Afficher();
+    }
 }
 
-void Liste::AjouterEtape(const Trajet *UnTrajet)
+void Liste::AjouterTrajet(const Trajet *UnTrajet)
 {
-    Etape *etapeSuivante = new Etape(UnTrajet);
-
     if (premiereEtape == NULL) {
         premiereEtape = new Etape(UnTrajet);
+        derniereEtape = premiereEtape;
+    } else if (premiereEtape->getEtapeSuivante() == NULL) {
+        derniereEtape = new Etape(UnTrajet);
+        premiereEtape->setEtapeSuivant(derniereEtape);
+        derniereEtape->setEtapePrecedent(premiereEtape);
     } else {
-        Etape *temp = premiereEtape;
+    //} else {
+        Etape *x = new Etape(UnTrajet);
+        derniereEtape->setEtapeSuivant(x);
+        x->setEtapePrecedent(derniereEtape);
+        derniereEtape = x;
     }
+}
 
-
+Etape *Liste::getPremiereEtape() const {
+    return premiereEtape;
+}
+Etape *Liste::getDerniereEtape() const {
+    return derniereEtape;
 }
 
 

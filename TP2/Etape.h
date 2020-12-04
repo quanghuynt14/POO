@@ -16,19 +16,22 @@ class Etape
 {
 
 private:
-    const Trajet *TrajetActuel; //1 trajet -> 2 ou plus escales
-    Etape *TrajetSuivant;
+    const Trajet *TrajetActuel; 
+    const Etape *EtapePrecedent;
+    const Etape *EtapeSuivant;
 
 public:
 
-    Etape (const Trajet *Arrivant);
+    Etape (const Trajet *UnTrajet = NULL);
 
     virtual ~Etape ( );
 
     void Afficher( ) const;
     const Trajet *getTrajet() const;
+    const Etape *getEtapePrecedent() const;
     const Etape *getEtapeSuivante() const;
-    void setTrajetSuivant(const Etape UneEtape) const;
+    void setEtapeSuivant(const Etape *UneEtape);
+    void setEtapePrecedent(const Etape *UneEtape);
 
 };
 

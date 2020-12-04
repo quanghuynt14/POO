@@ -20,6 +20,12 @@ Trajet::Trajet (const char *Start, const char *Goal)
 	strcpy(arrivee, Goal);
 }
 
+// Trajet::Trajet(const Trajet &UnTrajet) 
+// {
+// 	depart = UnTrajet.depart;
+// 	arrivee = UnTrajet.arrivee;
+// }
+
 Trajet::~Trajet()
 {
 	delete [] depart;

@@ -13,15 +13,16 @@ using namespace std;
 #include "Trajet.h"
 #include "Etape.h"
 
-Etape::Etape (const Trajet *Arrivant) 
+Etape::Etape (const Trajet *UnTrajet) 
 {
-	TrajetActuel = Arrivant;
-    TrajetSuivant = NULL;
+	TrajetActuel = UnTrajet;
+    EtapePrecedent = NULL;
+    EtapeSuivant = NULL;
 }
 
 Etape::~Etape ( )
 {
-    //delete TrajetActuel;
+    
 } 
 
 void Etape::Afficher () const
@@ -30,9 +31,30 @@ void Etape::Afficher () const
     
 }
 
+const Trajet *Etape::getTrajet() const 
+{
+    return TrajetActuel;
+}
+
+const Etape *Etape::getEtapePrecedent() const
+{
+    return EtapePrecedent;
+}
+
 const Etape *Etape::getEtapeSuivante() const
 {
-    return TrajetSuivant;
+    return EtapeSuivant;
 }
+
+void Etape::setEtapeSuivant(const Etape *UneEtape) 
+{
+    EtapeSuivant = UneEtape;
+}
+
+void Etape::setEtapePrecedent(const Etape *UneEtape) 
+{
+    EtapePrecedent = UneEtape;
+}
+
 
 

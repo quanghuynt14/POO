@@ -27,7 +27,7 @@ TrajetSimple::~TrajetSimple()
 
 void TrajetSimple::Afficher() const
 {
-	cout << "Trajet de " << getDepart() << " à " << getArrivee() << " en " << moyen << endl;
+	cout << "Trajet simple de " << getDepart() << " à " << getArrivee() << " en " << moyen << endl;
 }
 
 
