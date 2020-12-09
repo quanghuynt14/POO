@@ -29,22 +29,6 @@ void Catalogue::Afficher() const
 {
     trajets->Afficher();
 }
- 
-char *getString () {
-	char w = getc(stdin);
-	char *s = new char[100];
-	int i = 0;
-
-	if (w != '\n') {
-		s[i] = w;
-		i++;
-	}
-	while ((w = getc(stdin)) != '\n') {
-		s[i] = w;
-		i++;
-	}
-	return s;
-}
 
 void Catalogue::AjouterTrajetSimple() 
 {

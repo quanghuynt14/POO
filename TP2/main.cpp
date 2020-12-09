@@ -50,14 +50,14 @@ int main(){
 
 	while (1) {
 		cout << '\n';
-		cout << "|***************************************|\n";
-		cout << "| 1 - Ajouter Trajet Simple             |\n";
-		cout << "| 2 - Ajouter Trajet Compose            |\n";
-		cout << "| 3 - Afficher Catalogue                |\n";
-		cout << "| 4 - Rechercher simple de parcours     |\n";
-		cout << "| 5 - Rechercher avancee de parcours    |\n";
-		cout << "| 6 - Quitter l'application             |\n";
-		cout << "Que souhaitez-vous choisir ?               ";
+		cout << "|************************************************************|\n";
+		cout << "| 1 - Ajouter un trajet simple                               |\n";
+		cout << "| 2 - Ajouter un trajet composé (avec escale)                |\n";
+		cout << "| 3 - Afficher le catalogue                                  |\n";
+		cout << "| 4 - Rechercher un parcours                                 |\n";
+		cout << "| 5 - Rechercher un parcours (avancée)                       |\n";
+		cout << "| 6 - Quitter l'application                                  |\n";
+		cout << "Tapez le numéro correspondant à l'action de votre choix : ";
 
 		char option;
 		cin >> option;
@@ -148,4 +148,20 @@ int main(){
 	cout << "\n";
 
 	return 0;
+}
+
+char *getString () {
+	char w = getc(stdin);
+	char *s = new char[100];
+	int i = 0;
+
+	if (w != '\n') {
+		s[i] = w;
+		i++;
+	}
+	while ((w = getc(stdin)) != '\n') {
+		s[i] = w;
+		i++;
+	}
+	return s;
 }
