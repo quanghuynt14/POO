@@ -14,17 +14,18 @@ class Trajet
 {
 
 private:
+
     char *depart; 
     char *arrivee; 
 
 protected:
+
     Trajet(const char *Start, const char *Goal);
     virtual ~Trajet();
 
 public:
 
-    //Trajet & operator = ( const Trajet & unTrajet );
-    virtual void Afficher() const = 0;
+    virtual void Afficher() const = 0; 
     const char *getDepart() const;
     const char *getArrivee() const;
 

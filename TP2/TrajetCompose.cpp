@@ -15,7 +15,9 @@ using namespace std;
 #include "TrajetCompose.h"
 #include "Liste.h"
 
-TrajetCompose::TrajetCompose(const char *Start, const char *Goal, const Liste *UneListe) : Trajet(Start, Goal)
+TrajetCompose::TrajetCompose(const Liste *UneListe) : 
+        Trajet(UneListe->getPremiereEtape()->getTrajet()->getDepart(), 
+               UneListe->getDerniereEtape()->getTrajet()->getArrivee())
 {
 	Etapes = new Liste;
     const Etape *x = UneListe->getPremiereEtape();
@@ -32,11 +34,9 @@ TrajetCompose::~TrajetCompose()
 
 void TrajetCompose::Afficher() const
 {
-    cout << "Trajet compose include les etapes suivantes : ";
-    cout << "\n|^^^^^^^";
+    cout << "Depart : " << Etapes->getPremiereEtape()->getTrajet()->getDepart() 
+         << "       Arrivee : " << Etapes->getDerniereEtape()->getTrajet()->getArrivee() << endl;
 	Etapes->Afficher();
-    cout << "\n|_______";
-    cout << "\n";
 }
 
 

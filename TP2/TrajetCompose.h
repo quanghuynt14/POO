@@ -20,9 +20,9 @@ private:
 
 public:
 
-    TrajetCompose();
+    //TrajetCompose();
     
-    TrajetCompose(const char *Start, const char *Goal, const Liste *UneListe);
+    TrajetCompose(const Liste *UneListe);
 
     virtual ~TrajetCompose();
 

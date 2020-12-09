@@ -27,7 +27,7 @@ public:
 
     void Afficher() const;
 
-    void AjouterTrajetSimple(const TrajetSimple *UnTrajetSimple);
+    void AjouterTrajetSimple();
 
     void AjouterTrajetCompose(const TrajetCompose *UnTrajetCompose);
 
@@ -35,7 +35,8 @@ public:
 
     void RechercheAvancee(const char *Start, const char *Goal) const;
 
-    void BFS(const Trajet *x, bool *v, const char *Goal, Liste *Chemin, int &nbParcours) const;
+    void BFS(const Trajet *x, bool *v, const char *Goal, 
+             Liste *Chemin, int &nbParcours) const;
 
 
 

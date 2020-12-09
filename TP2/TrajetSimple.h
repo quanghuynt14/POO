@@ -17,7 +17,8 @@ private:
 
 public:
 
-    TrajetSimple(const char *Start, const char *Goal, const char *Means);
+    TrajetSimple(const char *Start, const char *Goal, 
+                 const char *Means);
 
     virtual ~TrajetSimple();
 

@@ -54,7 +54,6 @@ void Liste::AjouterTrajet(const Trajet *UnTrajet)
         derniereEtape->setEtapePrecedent(premiereEtape);
         size = 2;
     } else {
-    //} else {
         Etape *x = new Etape(UnTrajet);
         derniereEtape->setEtapeSuivant(x);
         x->setEtapePrecedent(derniereEtape);

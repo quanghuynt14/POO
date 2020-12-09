@@ -13,7 +13,8 @@ using namespace std;
 #include "Trajet.h"
 #include "TrajetSimple.h"
 
-TrajetSimple::TrajetSimple(const char *Start, const char *Goal, const char *Means) : Trajet(Start, Goal)
+TrajetSimple::TrajetSimple(const char *Start, const char *Goal, 
+                           const char *Means) : Trajet(Start, Goal)
 {
 	moyen = new char[strlen(Means) + 1];
 	strcpy(moyen, Means);
@@ -22,12 +23,12 @@ TrajetSimple::TrajetSimple(const char *Start, const char *Goal, const char *Mean
 TrajetSimple::~TrajetSimple()
 {
 	delete [] moyen;
-	//cout<<"TrajetS détruit"<<endl;
 } 
 
 void TrajetSimple::Afficher() const
 {
-	cout << "Trajet simple de " << getDepart() << " a " << getArrivee() << " en " << moyen << " ";
+	cout << "Trajet de " << getDepart() << " a " << getArrivee() 
+            << " en " << moyen << " " << endl;
 }
 
 

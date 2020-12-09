@@ -10,21 +10,6 @@ using namespace std;
 #include "Etape.h"
 #include "Liste.h"
 
-char *getString () {
-	char w = getc(stdin);
-	char *s = new char[100];
-	int i = 0;
-
-	if (w != '\n') {
-		s[i] = w;
-		i++;
-	}
-	while ((w = getc(stdin)) != '\n') {
-		s[i] = w;
-		i++;
-	}
-	return s;
-}
 
 int main(){
 	// const TrajetSimple *ts1 = new TrajetSimple("A", "B", "1");
@@ -64,36 +49,23 @@ int main(){
 	Catalogue *C = new Catalogue;
 
 	while (1) {
-		cout << "\n";
+		cout << '\n';
 		cout << "|***************************************|\n";
 		cout << "| 1 - Ajouter Trajet Simple             |\n";
 		cout << "| 2 - Ajouter Trajet Compose            |\n";
 		cout << "| 3 - Afficher Catalogue                |\n";
 		cout << "| 4 - Rechercher simple de parcours     |\n";
-		cout << "| 5 - Rechercher avancee de parcourd    |\n";
+		cout << "| 5 - Rechercher avancee de parcours    |\n";
 		cout << "| 6 - Quitter l'application             |\n";
-		cout << "| Que souhaitez-vous choisir ?          |\n";
-	 	cout << "  "; 
+		cout << "Que souhaitez-vous choisir ?               ";
+
 		char option;
 		cin >> option;
 
 		if (option == '1') {
-			char *villeDepart;
-			char *villeArrivee;
-			char *transport;
 
-			cout << "Ville de depart : ";
-			villeDepart = getString();
-			cout << "Ville d'arrivee : ";
-			villeArrivee = getString();
-			cout << "Moyen de transport : ";
-			transport = getString();
+			C->AjouterTrajetSimple();
 
-			const TrajetSimple *trajet_simple = new TrajetSimple(villeDepart, villeArrivee, transport);
-			C->AjouterTrajetSimple(trajet_simple);
-
-			trajet_simple->Afficher(); 
-			cout << "a ete ajoute au catalogue.";
 		} 
 		else if (option == '2') {
 			cout << "Entrez le nombre d'etapes que vous souhaitez deplacer (N > 1). N = ";
@@ -122,14 +94,15 @@ int main(){
 				cout << "Moyen de transport de etape " << i << " : ";
 				transport = getString();
 
-				const TrajetSimple *trajet_simple = new TrajetSimple(villeDepart, villeSuivant, transport);
+				const TrajetSimple *trajet_simple = 
+				  new TrajetSimple(villeDepart, villeSuivant, transport);
+
 				L->AjouterTrajet(trajet_simple);
 				villeDepart = villeSuivant;
 			}
 
-			const TrajetCompose *trajet_compose = new TrajetCompose(L->getPremiereEtape()->getTrajet()->getDepart(), 
-																	L->getDerniereEtape()->getTrajet()->getArrivee(), 
-												 					L);
+			const TrajetCompose *trajet_compose = new TrajetCompose(L);
+								
 			C->AjouterTrajetCompose(trajet_compose);
 
 			trajet_compose->Afficher(); 

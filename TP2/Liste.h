@@ -33,7 +33,8 @@ public:
     void AjouterTrajet(const Trajet *UnTrajet);
     int getSize() const;
     int getPosition(const Etape *UnEtape) const;
-    void RetirerEtape(const Etape *UneEtape);
+    void RetirerEtape(const Etape *UneEtape);  // The delete opetation in Doubly LinkedList is more efficient 
+                                               // if pointer to the node to be deleted is given.
 
 };
 

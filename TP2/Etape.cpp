@@ -36,10 +36,6 @@ Etape::~Etape ( )
 
 void Etape::Afficher () const
 {
-    // const TrajetCompose* t = static_cast<TrajetCompose*>(TrajetActuel); 
-    // if (t) {
-    //     cout << "    ";
-    // } 
 	TrajetActuel->Afficher();
 }
 

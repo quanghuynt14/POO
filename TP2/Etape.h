@@ -29,10 +29,15 @@ public:
     virtual ~Etape ( );
 
     void Afficher() const;
+
     const Trajet *getTrajet() const;
+
     Etape *getEtapePrecedent() const;
+
     Etape *getEtapeSuivante() const;
+
     void setEtapeSuivant( Etape *UneEtape);
+    
     void setEtapePrecedent( Etape *UneEtape);
 
 };
